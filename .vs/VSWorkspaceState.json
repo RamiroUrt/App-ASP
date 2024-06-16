@@ -1,0 +1,15 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\Calculator",
+    "\\Calculator\\Controllers",
+    "\\Calculator\\Models",
+    "\\Calculator\\Views",
+    "\\Calculator\\Views\\Calculator",
+    "\\Calculator\\Views\\Form",
+    "\\Calculator\\Views\\Shared",
+    "\\Calculator\\wwwroot"
+  ],
+  "SelectedNode": "\\Calculadora.sln",
+  "PreviewInSolutionExplorer": false
+}

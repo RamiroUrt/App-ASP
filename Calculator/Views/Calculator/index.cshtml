@@ -1,0 +1,53 @@
+@model Calculator.Models.Views.CalculatorViewModel
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center custom-calculator">
+    <h1 class="font-weight-bold display-4 m-2">Calculator</h1>
+    <form asp-controller="Calculator" asp-action="Calculate"> 
+        <label class="p-2">Operador</label>
+        <input asp-for="Operator1" />
+        <span asp-validation-for="Operator1" class="text-danger"></span>
+        <br>
+        <label class="p-2">Operador</label>
+        <input asp-for="Operator2" />
+        <span asp-validation-for="Operator2" class="text-danger"></span>
+        <br>
+        <label class="p-2">Elige la Acción</label>
+        <select asp-for="Action">
+            <option value="+">Suma</option>
+            <option value="-">Resta</option>
+            <option value="*">Multiplicar</option>
+            <option value="/">Dividir</option>
+        </select>
+        <span asp-validation-for="Action" class="text-danger"></span>
+        <br>
+        <input type="submit" value="Calcular" />
+    </form>
+
+    <div class="result">
+        <label>El resultado es: </label>
+        <span>@Model.Response</span>
+    </div>
+
+    <!-- Mostrar errores generales -->
+    <div>
+        @if (!ViewData.ModelState.IsValid)
+        {
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+                    {
+                        @error.ErrorMessage
+                    }
+                </ul>
+            </div>
+        }
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

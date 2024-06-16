@@ -1,0 +1,71 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\rami0\\OneDrive\\Escritorio\\Calculadora\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{997C5625-DDBA-4BD7-A83F-1439F5377064}|Calculator\\calculator.csproj|c:\\users\\rami0\\onedrive\\escritorio\\calculadora\\calculator\\views\\form\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{997C5625-DDBA-4BD7-A83F-1439F5377064}|Calculator\\calculator.csproj|solutionrelative:calculator\\views\\form\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{997C5625-DDBA-4BD7-A83F-1439F5377064}|Calculator\\calculator.csproj|c:\\users\\rami0\\onedrive\\escritorio\\calculadora\\calculator\\controllers\\formcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{997C5625-DDBA-4BD7-A83F-1439F5377064}|Calculator\\calculator.csproj|solutionrelative:calculator\\controllers\\formcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{997C5625-DDBA-4BD7-A83F-1439F5377064}|Calculator\\calculator.csproj|c:\\users\\rami0\\onedrive\\escritorio\\calculadora\\calculator\\models\\formviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{997C5625-DDBA-4BD7-A83F-1439F5377064}|Calculator\\calculator.csproj|solutionrelative:calculator\\models\\formviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\rami0\\OneDrive\\Escritorio\\Calculadora\\Calculator\\Views\\Form\\Create.cshtml",
+              "RelativeDocumentMoniker": "Calculator\\Views\\Form\\Create.cshtml",
+              "ToolTip": "C:\\Users\\rami0\\OneDrive\\Escritorio\\Calculadora\\Calculator\\Views\\Form\\Create.cshtml",
+              "RelativeToolTip": "Calculator\\Views\\Form\\Create.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAJkAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-13T22:51:08.082Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "FormViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\rami0\\OneDrive\\Escritorio\\Calculadora\\Calculator\\Models\\FormViewModel.cs",
+              "RelativeDocumentMoniker": "Calculator\\Models\\FormViewModel.cs",
+              "ToolTip": "C:\\Users\\rami0\\OneDrive\\Escritorio\\Calculadora\\Calculator\\Models\\FormViewModel.cs",
+              "RelativeToolTip": "Calculator\\Models\\FormViewModel.cs",
+              "ViewState": "AQIAABoAAAAAAAAAAAAwwCsAAAArAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-13T22:37:59.825Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "FormController.cs",
+              "DocumentMoniker": "C:\\Users\\rami0\\OneDrive\\Escritorio\\Calculadora\\Calculator\\Controllers\\FormController.cs",
+              "RelativeDocumentMoniker": "Calculator\\Controllers\\FormController.cs",
+              "ToolTip": "C:\\Users\\rami0\\OneDrive\\Escritorio\\Calculadora\\Calculator\\Controllers\\FormController.cs",
+              "RelativeToolTip": "Calculator\\Controllers\\FormController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABcAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-14T00:04:13.057Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

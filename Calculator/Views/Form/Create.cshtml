@@ -1,0 +1,188 @@
+﻿@model Calculator.Models.Views.FormViewModel
+
+@{
+    ViewData["Title"] = "Form";
+}
+
+<style>
+    .form-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .form-group {
+        flex: 0 0 48%;
+        margin-bottom: 10px;
+    }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 8px;
+            font-size: 16px;
+        }
+
+    .output-label {
+        margin-top: 20px;
+        font-weight: bold;
+    }
+
+    .message {
+        margin-top: 20px;
+        font-weight: bold;
+    }
+</style>
+
+
+<div class="text-center">
+    <form id="myForm" asp-controller="Form" asp-action="Create" method="post">
+        <div class="form-container">
+            <div class="form-group">
+                <label for="Name">Name:</label>
+                <input asp-for="Name" type="text" class="form-control" placeholder="Juan" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="LastName">Apellido:</label>
+                <input asp-for="LastName" type="text" class="form-control" placeholder="Messi" />
+                <span asp-validation-for="LastName" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="Clave">Contraseña:</label>
+                <input asp-for="Clave" type="password" class="form-control" />
+                <span asp-validation-for="Clave" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="RepeatClave">Repetir Contraseña:</label>
+                <input asp-for="RepeatPassword" type="password" class="form-control" />
+                <span asp-validation-for="RepeatPassword" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="Email">Correo Electronico:</label>
+                <input asp-for="Email" type="email" class="form-control" placeholder="urteagaramiro33@gmai.com" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="Country">País:</label>
+                <select asp-for="Country" class="form-control">
+                    <option value="">--Seleccione un país--</option>
+                    <option value="AF">Afganistán</option>
+                    <option value="AL">Albania</option>
+                    <option value="DZ">Argelia</option>
+                    <option value="AR">Argentina</option>
+                    <option value="AM">Armenia</option>
+                    <option value="AU">Australia</option>
+                    <option value="AT">Austria</option>
+                </select>
+                <span asp-validation-for="Country" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="Default">Provincia:</label>
+                <input asp-for="Default" type="text" class="form-control" placeholder="Buenos Aires" />
+                <span asp-validation-for="Default" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="CP">Codigo Postal:</label>
+                <input asp-for="CP" type="number" class="form-control" placeholder="4042" />
+                <span asp-validation-for="CP" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label>Sexo:</label>
+                <div>
+                    <input type="radio" id="male" name="gender" value="male">
+                    <label for="male">Masculino</label>
+                    <input type="radio" id="female" name="gender" value="female">
+                    <label for="female">Femenino</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="dob">Fecha de Nacimiento (dd/mm/aa):</label>
+                <input type="text" class="form-control" placeholder="dd/mm/aa">
+            </div>
+
+            <div class="form-group">
+                <label for="comments">Comentarios:</label>
+                <textarea id="comments" name="comments" rows="4" class="form-control" placeholder="Escribe tus comentarios aquí..."></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="terms">Acepto términos y condiciones:</label>
+                <input type="checkbox" />
+            </div>
+        </div>
+
+        <div class="text-center">
+            <input type="submit" value="Aceptar" class="btn btn-primary" />
+        </div>
+    </form>
+
+    <div id="output" class="output-label"></div>
+    <div id="message" class="message"></div>
+
+    <script>
+        document.getElementById('myForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            var form = this; //obtiene una referencia al formulario
+            var formData = new FormData(form); //Crea elemento FormData que contendra los datos del form
+
+            fetch(form.action, {
+                method: form.method,//se establece el metodo HTTP POST
+                body: formData //se envian los datos del Formdata al Body
+            }).then(response => response.json())//tipico funcionamiento de un Fect y manejo de su respuesta
+                .then(data => {
+                    var messageElement = document.getElementById('message'); //selecciona lugar a enviar los datos "message"
+                    var outputElement = document.getElementById('output');//selecciona lugar a enviar los datos "output"
+
+
+                    if (data.success) {
+                        // Mostrar la salida del formulario si todos los campos requeridos son válidos con formato, color y mensaje esperado
+                        for (var key in data.data) {
+                            if (data.data.hasOwnProperty(key) && data.data[key]) {
+                                var label = document.createElement('label');
+                                label.textContent = key + ': ';
+                                var span = document.createElement('span');
+                                span.textContent = data.data[key];
+                                label.appendChild(span);
+                                outputElement.appendChild(label);
+                                outputElement.appendChild(document.createElement('br'));
+                            }
+                        }
+                        messageElement.textContent = 'Datos ingresados correctamente.';
+                        messageElement.style.color = 'green';
+                    } else {
+                        // Mostrar mensajes de error si la validación falla con formato, color y mensaje esperado
+                        messageElement.textContent = 'No se pueden ingresar los datos. Por favor, complete todos los campos requeridos.';
+                        messageElement.style.color = 'red';
+
+                        // Mostrar los errores en los campos, errores o validaciones del Model
+                        var errorList = document.createElement('ul');
+                        data.errors.forEach(function (error) {
+                            var errorItem = document.createElement('li');
+                            errorItem.textContent = error;
+                            errorList.appendChild(errorItem);
+                        });
+                        messageElement.appendChild(errorList);
+                    }
+                })
+        });
+    </script>
+</div>
